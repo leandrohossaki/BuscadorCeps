@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="app_name">Buscador de CEPs</string>
-	<string name="cep_desc_de">De:</string>
+	<string name="cep_desc_de">De</string>
 	<string name="cep_desc_in_de">CEP Partida</string>
-	<string name="cep_desc_para">Para:</string>
+	<string name="cep_desc_para">Para</string>
 	<string name="cep_desc_in_para">CEP Chegada</string>
 	<string name="de_estado">Estado</string>
 	<string name="de_cidade">Cidade</string>

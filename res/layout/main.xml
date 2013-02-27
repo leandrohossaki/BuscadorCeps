@@ -29,166 +29,153 @@
 					android:textSize="16sp" android:text="@string/flipper_text3" />
 				
 		</ViewFlipper>
-		
-		<LinearLayout
+
+		<TableLayout
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
-		    android:gravity="bottom|center_horizontal"
-		    android:orientation="horizontal" >
+		    android:stretchColumns="*" >
 
-				<TableLayout
-				    android:layout_width="fill_parent"
-				    android:layout_height="wrap_content"
-				    android:stretchColumns="*" >
+		    <TableRow
+		        android:id="@+id/tableRow1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
 
-				    <TableRow
-				        android:id="@+id/tableRow1"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:orientation="horizontal" >
+		        <TextView
+		            android:id="@+id/tvCepDescDe"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_horizontal"
+		            android:text="@string/cep_desc_de"
+		            android:textSize="18sp" />
 
-				        <LinearLayout
-				            android:layout_width="wrap_content"
-				            android:layout_height="wrap_content" >
+		        <TextView
+		            android:id="@+id/tvCepDescPara"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_horizontal"
+		            android:text="@string/cep_desc_para"
+		            android:textSize="18sp" />
+		    </TableRow>
 
-				            <TextView
-				                android:id="@+id/tvCepDescDe"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/cep_desc_de"
-				                android:textSize="18sp" />
+		    <TableRow
+		        android:id="@+id/tableRow2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
 
-				            <EditText
-				                android:id="@+id/etCEPDe"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:layout_weight="1"
-				                android:hint="@string/cep_desc_in_de"
-				                android:textSize="12sp" />
+		        <EditText
+		            android:id="@+id/etCEPDe"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:ems="10"
+		            android:hint="@string/cep_desc_in_de"
+		            android:textSize="14sp" >
 
-				        </LinearLayout>
+		            <requestFocus />
+		        </EditText>
 
-				        <LinearLayout
-				            android:layout_width="wrap_content"
-				            android:layout_height="wrap_content" >
+		        <EditText
+		            android:id="@+id/etCEPPara"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:ems="10"
+		            android:hint="@string/cep_desc_in_para"
+		            android:textSize="14sp" />
+		    </TableRow>
 
-				            <TextView
-				                android:id="@+id/tvCepDescPara"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/cep_desc_para"
-				                android:textSize="18sp" />
+		    <TableRow
+		        android:id="@+id/tableRow3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content" >
 
-				            <EditText
-				                android:id="@+id/etCEPPara"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:layout_weight="1"
-				                android:hint="@string/cep_desc_in_para"
-				                android:textSize="12sp" >
+		        <LinearLayout
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="center_horizontal"
+		            android:orientation="vertical" >
 
-				                <requestFocus />
-				            </EditText>
+		            <TextView
+		                android:id="@+id/tvDeEstado"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_estado"
+		                android:textSize="14sp" />
 
-				        </LinearLayout>
+		            <TextView
+		                android:id="@+id/tvDeCidade"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_cidade"
+		                android:textSize="14sp" />
 
-				    </TableRow>
+		            <TextView
+		                android:id="@+id/tvDeBairro"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_bairro"
+		                android:textSize="14sp" />
 
-				    <TableRow
-				        android:id="@+id/tableRow2"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:orientation="horizontal" >
+		            <TextView
+		                android:id="@+id/tvDeLogradouro"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_logradouro"
+		                android:textSize="14sp" />
 
-				        <LinearLayout
-				            android:layout_width="wrap_content"
-				            android:layout_height="wrap_content"
-				            android:gravity="center_horizontal"
-				            android:orientation="vertical" >
+		            <TextView
+		                android:id="@+id/tvDeComplemento"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_complemento"
+		                android:textSize="14sp" />
+		        </LinearLayout>
 
-				            <TextView
-				                android:id="@+id/tvDeEstado"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_estado"
-				                android:textSize="14sp" />
+		        <LinearLayout
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="center_horizontal"
+		            android:orientation="vertical" >
 
-				            <TextView
-				                android:id="@+id/tvDeCidade"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_cidade"
-				                android:textSize="14sp" />
+		            <TextView
+		                android:id="@+id/tvParaEstado"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_estado"
+		                android:textSize="14sp" />
 
-				            <TextView
-				                android:id="@+id/tvDeBairro"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_bairro"
-				                android:textSize="14sp" />
+		            <TextView
+		                android:id="@+id/tvParaCidade"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_cidade"
+		                android:textSize="14sp" />
 
-				            <TextView
-				                android:id="@+id/tvDeLogradouro"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_logradouro"
-				                android:textSize="14sp" />
+		            <TextView
+		                android:id="@+id/tvParaBairro"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_bairro"
+		                android:textSize="14sp" />
 
-				            <TextView
-				                android:id="@+id/tvDeComplemento"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_complemento"
-				                android:textSize="14sp" />
-				        </LinearLayout>
+		            <TextView
+		                android:id="@+id/tvParaLogradouro"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_logradouro"
+		                android:textSize="14sp" />
 
-				        <LinearLayout
-				            android:layout_width="wrap_content"
-				            android:layout_height="wrap_content"
-				            android:gravity="center_horizontal"
-				            android:orientation="vertical" >
-				            
-							<TextView
-				                android:id="@+id/tvParaEstado"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_estado"
-				                android:textSize="14sp" />
-
-				            <TextView
-				                android:id="@+id/tvParaCidade"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_cidade"
-				                android:textSize="14sp" />
-
-				            <TextView
-				                android:id="@+id/tvParaBairro"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_bairro"
-				                android:textSize="14sp" />
-
-				            <TextView
-				                android:id="@+id/tvParaLogradouro"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_logradouro"
-				                android:textSize="14sp" />
-
-				            <TextView
-				                android:id="@+id/tvParaComplemento"
-				                android:layout_width="wrap_content"
-				                android:layout_height="wrap_content"
-				                android:text="@string/de_complemento"
-				                android:textSize="14sp" />
-				            
-				        </LinearLayout>
-
-				    </TableRow>
-				</TableLayout>
-				
-		</LinearLayout>
+		            <TextView
+		                android:id="@+id/tvParaComplemento"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/de_complemento"
+		                android:textSize="14sp" />
+		        </LinearLayout>
+		    </TableRow>
+		</TableLayout>
 
 		<ImageButton
 		    android:id="@+id/imgBtnPesquisar"

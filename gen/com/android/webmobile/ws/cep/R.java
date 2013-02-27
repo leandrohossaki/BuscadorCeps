@@ -137,30 +137,31 @@ containing a value of this type.
         public static final int search=0x7f020002;
     }
     public static final class id {
-        public static final int etCEPDe=0x7f050008;
-        public static final int etCEPPara=0x7f05000a;
+        public static final int etCEPDe=0x7f05000a;
+        public static final int etCEPPara=0x7f05000b;
         public static final int flipper=0x7f050005;
-        public static final int imgBtnPesquisar=0x7f050016;
-        public static final int map=0x7f050017;
+        public static final int imgBtnPesquisar=0x7f050017;
+        public static final int map=0x7f050018;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int rootLayout=0x7f050004;
         public static final int satellite=0x7f050002;
         public static final int tableRow1=0x7f050006;
-        public static final int tableRow2=0x7f05000b;
+        public static final int tableRow2=0x7f050009;
+        public static final int tableRow3=0x7f05000c;
         public static final int terrain=0x7f050003;
         public static final int tvCepDescDe=0x7f050007;
-        public static final int tvCepDescPara=0x7f050009;
-        public static final int tvDeBairro=0x7f05000e;
-        public static final int tvDeCidade=0x7f05000d;
-        public static final int tvDeComplemento=0x7f050010;
-        public static final int tvDeEstado=0x7f05000c;
-        public static final int tvDeLogradouro=0x7f05000f;
-        public static final int tvParaBairro=0x7f050013;
-        public static final int tvParaCidade=0x7f050012;
-        public static final int tvParaComplemento=0x7f050015;
-        public static final int tvParaEstado=0x7f050011;
-        public static final int tvParaLogradouro=0x7f050014;
+        public static final int tvCepDescPara=0x7f050008;
+        public static final int tvDeBairro=0x7f05000f;
+        public static final int tvDeCidade=0x7f05000e;
+        public static final int tvDeComplemento=0x7f050011;
+        public static final int tvDeEstado=0x7f05000d;
+        public static final int tvDeLogradouro=0x7f050010;
+        public static final int tvParaBairro=0x7f050014;
+        public static final int tvParaCidade=0x7f050013;
+        public static final int tvParaComplemento=0x7f050016;
+        public static final int tvParaEstado=0x7f050012;
+        public static final int tvParaLogradouro=0x7f050015;
     }
     public static final class layout {
         public static final int main=0x7f030000;

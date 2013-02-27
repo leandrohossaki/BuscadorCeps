@@ -32,6 +32,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -212,22 +213,20 @@ public class WSCepActivity extends MapActivity implements OnClickListener, OnKey
 						double longitudePara = localidadePara.getLongitude() * 1E6;
 						GeoPoint geoPointPara = new GeoPoint((int)latitudePara, (int)longitudePara);
 						
-						// zooming to both points
-						int maxLatitude = Math.max((int)latitudeDe, (int)latitudePara);
-						int minLatitude = Math.min((int)latitudeDe, (int)latitudePara);
-						int maxLongitude = Math.max((int)longitudeDe, (int)longitudePara);
-						int minLongitude = Math.min((int)longitudeDe, (int)longitudePara);
-						
-						MapController mapController = mapView.getController();
-						mapController.zoomToSpan(maxLatitude - minLatitude, maxLongitude - minLongitude);
-						mapController.animateTo(new GeoPoint((maxLatitude + minLatitude) / 2, (maxLongitude + minLongitude) / 2));
+						if (mapView.getOverlays().size() > 0)
+							mapView.getOverlays().clear();
 						
 						/*mapController.setZoom(17);
 						mapController.animateTo(geoPointDe);*/
 						
+						/* ========================================================= */
+						Route route = directions(geoPointDe, geoPointPara);
+						RouteOverlay routeOverlay = new RouteOverlay(route, Color.BLUE);
+						mapView.getOverlays().add(routeOverlay);
+						//mapView.invalidate();
+		                /* ========================================================= */
+						
 						Drawable marker = getResources().getDrawable(R.drawable.pin);
-						if (mapView.getOverlays().size() > 0)
-							mapView.getOverlays().clear();
 						
 						LocationCepOverlay locationCepOverlay = new LocationCepOverlay(marker, this);
 						
@@ -239,19 +238,37 @@ public class WSCepActivity extends MapActivity implements OnClickListener, OnKey
 						
 						mapView.getOverlays().add(locationCepOverlay);
 						
-						/* ========================================================= */
-						Route route = directions(geoPointDe, geoPointPara);
-						RouteOverlay routeOverlay = new RouteOverlay(route, Color.BLUE);
-						mapView.getOverlays().add(routeOverlay);
-						//mapView.invalidate();						
+						// zooming to both points
+						int maxLatitude = (int)latitudeDe;
+						int minLatitude = (int)latitudeDe;
+						int maxLongitude = (int)longitudeDe;
+						int minLongitude = (int)longitudeDe;
 						
-						/*String url = RoadProvider.getUrl(localidadeDe.getLatitude(), localidadeDe.getLongitude(), localidadePara.getLatitude(), localidadePara.getLongitude());
-		                InputStream is = getConnection(url);
-		                road = RoadProvider.getRoute(is);
-
-		                MapOverlay mapOverlay = new MapOverlay(road, mapView);
-		                mapView.getOverlays().add(mapOverlay);*/
-		                /* ========================================================= */
+						if(latitudePara > maxLatitude)
+							maxLatitude = (int)latitudePara;
+						if(latitudePara < minLatitude)
+							minLatitude = (int)latitudePara;
+						
+						if(longitudePara > maxLongitude)
+							maxLongitude = (int)longitudeDe;
+						if(longitudePara < minLongitude)
+							minLongitude = (int)longitudeDe;
+						
+						for(GeoPoint point : route.getPoints()){
+							if(point.getLatitudeE6() > maxLatitude)
+								maxLatitude = point.getLatitudeE6();
+							if(point.getLatitudeE6() < minLatitude)
+								minLatitude = point.getLatitudeE6();
+							
+							if(point.getLongitudeE6() > maxLongitude)
+								maxLongitude = point.getLongitudeE6();
+							if(point.getLongitudeE6() < minLongitude)
+								minLongitude = point.getLongitudeE6();
+						}
+						
+						MapController mapController = mapView.getController();
+						mapController.zoomToSpan(maxLatitude - minLatitude, maxLongitude - minLongitude);
+						mapController.animateTo(new GeoPoint((maxLatitude + minLatitude) / 2, (maxLongitude + minLongitude) / 2));						
 						
 						handler.sendEmptyMessage(0);
 					}
@@ -304,6 +321,9 @@ public class WSCepActivity extends MapActivity implements OnClickListener, OnKey
 			tvParaBairro.setText(cepBeanPara.getBairro());
 			tvParaLogradouro.setText(cepBeanPara.getLogradouro());
 			tvParaComplemento.setText(cepBeanPara.getComplemento());
+			
+			InputMethodManager imm = (InputMethodManager) getSystemService(MapActivity.INPUT_METHOD_SERVICE);
+		    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 			
 			progressDialog.dismiss();
 		}

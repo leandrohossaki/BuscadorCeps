@@ -84,16 +84,16 @@ public class RouteOverlay extends Overlay {
      */
 
     private void redrawPath(final MapView mv) {
-            final Projection prj = mv.getProjection();
-            path.rewind();
-            final Iterator<GeoPoint> it = routePoints.iterator();
+        final Projection prj = mv.getProjection();
+        path.rewind();
+        final Iterator<GeoPoint> it = routePoints.iterator();
+        prj.toPixels(it.next(), p);
+        path.moveTo(p.x, p.y);
+        while (it.hasNext()) {
             prj.toPixels(it.next(), p);
-            path.moveTo(p.x, p.y);
-            while (it.hasNext()) {
-                    prj.toPixels(it.next(), p);
-                    path.lineTo(p.x, p.y);
-            }
-            path.setLastPoint(p.x, p.y);
+            path.lineTo(p.x, p.y);
+        }
+        path.setLastPoint(p.x, p.y);
     }
 
 }

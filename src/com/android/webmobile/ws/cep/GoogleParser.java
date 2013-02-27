@@ -120,20 +120,20 @@ public class GoogleParser extends XMLParser implements Parser {
      */
 
     private List<GeoPoint> decodePolyLine(final String poly) {
-            int len = poly.length();
-            int index = 0;
-            List<GeoPoint> decoded = new ArrayList<GeoPoint>();
-            int lat = 0;
-            int lng = 0;
+        int len = poly.length();
+        int index = 0;
+        List<GeoPoint> decoded = new ArrayList<GeoPoint>();
+        int lat = 0;
+        int lng = 0;
 
-            while (index < len) {
+        while (index < len) {
             int b;
             int shift = 0;
             int result = 0;
             do {
-                    b = poly.charAt(index++) - 63;
-                    result |= (b & 0x1f) << shift;
-                    shift += 5;
+                b = poly.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
             } while (b >= 0x20);
             int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
             lat += dlat;
@@ -141,17 +141,17 @@ public class GoogleParser extends XMLParser implements Parser {
             shift = 0;
             result = 0;
             do {
-                    b = poly.charAt(index++) - 63;
-                    result |= (b & 0x1f) << shift;
-                    shift += 5;
+                b = poly.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
             } while (b >= 0x20);
-                    int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
-                    lng += dlng;
+            
+            int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+            lng += dlng;
 
-            decoded.add(new GeoPoint(
-                    (int) (lat*1E6 / 1E5), (int) (lng*1E6 / 1E5)));
-            }
+            decoded.add(new GeoPoint((int) (lat*1E6 / 1E5), (int) (lng*1E6 / 1E5)));
+        }
 
-            return decoded;
-            }
+        return decoded;
+    }
 }
