@@ -181,6 +181,25 @@ public class WSCepActivity extends MapActivity implements OnClickListener, OnKey
         return is;
 	}
 
+	private Route directions(final GeoPoint start, final GeoPoint dest) {
+	    Parser parser;
+	    //https://developers.google.com/maps/documentation/directions/#JSON <- get api
+	    String jsonURL = "http://maps.googleapis.com/maps/api/directions/json?";
+	    final StringBuffer sBuf = new StringBuffer(jsonURL);
+	    sBuf.append("origin=");
+	    sBuf.append(start.getLatitudeE6()/1E6);
+	    sBuf.append(',');
+	    sBuf.append(start.getLongitudeE6()/1E6);
+	    sBuf.append("&destination=");
+	    sBuf.append(dest.getLatitudeE6()/1E6);
+	    sBuf.append(',');
+	    sBuf.append(dest.getLongitudeE6()/1E6);
+	    sBuf.append("&sensor=true&mode=driving");
+	    parser = new GoogleParser(sBuf.toString());
+	    Route r =  parser.parse();
+	    return r;
+	}
+	
 	@Override
 	public void run() {
 		if(etCEPDe.getText().toString().equals("")) {
@@ -245,12 +264,17 @@ public class WSCepActivity extends MapActivity implements OnClickListener, OnKey
 						mapView.getOverlays().add(locationCepOverlay);
 						
 						/* ========================================================= */
-						String url = RoadProvider.getUrl(localidadeDe.getLatitude(), localidadeDe.getLongitude(), localidadePara.getLatitude(), localidadePara.getLongitude());
+						Route route = directions(geoPointDe, geoPointPara);
+						RouteOverlay routeOverlay = new RouteOverlay(route, Color.BLUE);
+						mapView.getOverlays().add(routeOverlay);
+						//mapView.invalidate();						
+						
+						/*String url = RoadProvider.getUrl(localidadeDe.getLatitude(), localidadeDe.getLongitude(), localidadePara.getLatitude(), localidadePara.getLongitude());
 		                InputStream is = getConnection(url);
 		                road = RoadProvider.getRoute(is);
 
 		                MapOverlay mapOverlay = new MapOverlay(road, mapView);
-		                mapView.getOverlays().add(mapOverlay);
+		                mapView.getOverlays().add(mapOverlay);*/
 		                /* ========================================================= */
 						
 						handler.sendEmptyMessage(0);
