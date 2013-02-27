@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">Buscador de CEPs</string>
+	<string name="cep_desc_de">De:</string>
+	<string name="cep_desc_in_de">CEP Partida</string>
+	<string name="cep_desc_para">Para:</string>
+	<string name="cep_desc_in_para">CEP Chegada</string>
+	<string name="de_estado">Estado</string>
+	<string name="de_cidade">Cidade</string>
+	<string name="de_bairro">Bairro</string>
+	<string name="de_logradouro">Logradouro</string>
+	<string name="de_complemento">Complemento</string>
+	<string name="para_estado">Estado</string>
+	<string name="para_cidade">Cidade</string>
+	<string name="para_bairro">Bairro</string>
+	<string name="para_logradouro">Logradouro</string>
+	<string name="para_complemento">Complemento</string>
+	<string name="pesquisar_desc">Pesquisar</string>
+	<string name="flipper_text1">Entre com o CEP,</string>
+	<string name="flipper_text2">clique na lupa ao lado ou</string>
+	<string name="flipper_text3">pressione ENTER</string>
+</resources>
