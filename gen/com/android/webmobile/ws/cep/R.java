@@ -63,6 +63,7 @@ containing a value of this type.
 <tr><td><code>normal</code></td><td>1</td><td></td></tr>
 <tr><td><code>satellite</code></td><td>2</td><td></td></tr>
 <tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
 </table>
          */
         public static final int mapType=0x7f010000;
@@ -137,44 +138,54 @@ containing a value of this type.
         public static final int search=0x7f020002;
     }
     public static final class id {
-        public static final int etCEPDe=0x7f05000a;
-        public static final int etCEPPara=0x7f05000b;
-        public static final int flipper=0x7f050005;
-        public static final int imgBtnPesquisar=0x7f050017;
-        public static final int map=0x7f050018;
+        public static final int etCEPDe=0x7f05000b;
+        public static final int etCEPPara=0x7f05000c;
+        public static final int flipper=0x7f050006;
+        public static final int hybrid=0x7f050004;
+        public static final int imgBtnPesquisar=0x7f050018;
+        public static final int map=0x7f050019;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int rootLayout=0x7f050004;
+        public static final int rootLayout=0x7f050005;
         public static final int satellite=0x7f050002;
-        public static final int tableRow1=0x7f050006;
-        public static final int tableRow2=0x7f050009;
-        public static final int tableRow3=0x7f05000c;
+        public static final int tableRow1=0x7f050007;
+        public static final int tableRow2=0x7f05000a;
+        public static final int tableRow3=0x7f05000d;
         public static final int terrain=0x7f050003;
-        public static final int tvCepDescDe=0x7f050007;
-        public static final int tvCepDescPara=0x7f050008;
-        public static final int tvDeBairro=0x7f05000f;
-        public static final int tvDeCidade=0x7f05000e;
-        public static final int tvDeComplemento=0x7f050011;
-        public static final int tvDeEstado=0x7f05000d;
-        public static final int tvDeLogradouro=0x7f050010;
-        public static final int tvParaBairro=0x7f050014;
-        public static final int tvParaCidade=0x7f050013;
-        public static final int tvParaComplemento=0x7f050016;
-        public static final int tvParaEstado=0x7f050012;
-        public static final int tvParaLogradouro=0x7f050015;
+        public static final int tvCepDescDe=0x7f050008;
+        public static final int tvCepDescPara=0x7f050009;
+        public static final int tvDeBairro=0x7f050010;
+        public static final int tvDeCidade=0x7f05000f;
+        public static final int tvDeComplemento=0x7f050012;
+        public static final int tvDeEstado=0x7f05000e;
+        public static final int tvDeLogradouro=0x7f050011;
+        public static final int tvParaBairro=0x7f050015;
+        public static final int tvParaCidade=0x7f050014;
+        public static final int tvParaComplemento=0x7f050017;
+        public static final int tvParaEstado=0x7f050013;
+        public static final int tvParaLogradouro=0x7f050016;
     }
     public static final class layout {
         public static final int main=0x7f030000;
     }
     public static final class string {
-        public static final int app_name=0x7f06000b;
-        public static final int cep_desc_de=0x7f06000c;
-        public static final int cep_desc_in_de=0x7f06000d;
-        public static final int cep_desc_in_para=0x7f06000f;
-        public static final int cep_desc_para=0x7f06000e;
+        public static final int app_name=0x7f060011;
+        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_availability_notification_title=0x7f06000e;
+        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
+         */
+        public static final int auth_client_play_services_err_notification_msg=0x7f06000f;
+        /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
+         */
+        public static final int auth_client_requested_by_msg=0x7f060010;
+        public static final int cep_desc_de=0x7f060012;
+        public static final int cep_desc_in_de=0x7f060013;
+        public static final int cep_desc_in_para=0x7f060015;
+        public static final int cep_desc_para=0x7f060014;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
-        can enable it [CHAR LIMIT=30] 
+        can enable it [CHAR LIMIT=40] 
          */
         public static final int common_google_play_services_enable_button=0x7f060006;
         /**  Message in confirmation dialog informing user they need to enable
@@ -185,7 +196,7 @@ containing a value of this type.
         Google Play services in application settings [CHAR LIMIT=40] 
          */
         public static final int common_google_play_services_enable_title=0x7f060004;
-        /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=30] 
+        /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
         public static final int common_google_play_services_install_button=0x7f060003;
         /**  (For phones) Message in confirmation dialog informing user that
@@ -200,13 +211,19 @@ containing a value of this type.
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
         public static final int common_google_play_services_install_title=0x7f060000;
-        /**  Message in confirmation dialog informing user there is an unknow issue in Google Player
+        /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
         public static final int common_google_play_services_unknown_issue=0x7f060009;
-        /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=20] 
+        /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_update_button=0x7f06000a;
+        public static final int common_google_play_services_unsupported_text=0x7f06000b;
+        /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_unsupported_title=0x7f06000a;
+        /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_update_button=0x7f06000c;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
@@ -215,20 +232,24 @@ containing a value of this type.
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
         public static final int common_google_play_services_update_title=0x7f060007;
-        public static final int de_bairro=0x7f060012;
-        public static final int de_cidade=0x7f060011;
-        public static final int de_complemento=0x7f060014;
-        public static final int de_estado=0x7f060010;
-        public static final int de_logradouro=0x7f060013;
-        public static final int flipper_text1=0x7f06001b;
-        public static final int flipper_text2=0x7f06001c;
-        public static final int flipper_text3=0x7f06001d;
-        public static final int para_bairro=0x7f060017;
-        public static final int para_cidade=0x7f060016;
-        public static final int para_complemento=0x7f060019;
-        public static final int para_estado=0x7f060015;
-        public static final int para_logradouro=0x7f060018;
-        public static final int pesquisar_desc=0x7f06001a;
+        /**  Long form sign-in button text. This is the placeholder text, used if we can't
+        find the service-side assets. [CHAR LIMIT=25] 
+         */
+        public static final int common_signin_button_text_long=0x7f06000d;
+        public static final int de_bairro=0x7f060018;
+        public static final int de_cidade=0x7f060017;
+        public static final int de_complemento=0x7f06001a;
+        public static final int de_estado=0x7f060016;
+        public static final int de_logradouro=0x7f060019;
+        public static final int flipper_text1=0x7f060021;
+        public static final int flipper_text2=0x7f060022;
+        public static final int flipper_text3=0x7f060023;
+        public static final int para_bairro=0x7f06001d;
+        public static final int para_cidade=0x7f06001c;
+        public static final int para_complemento=0x7f06001f;
+        public static final int para_estado=0x7f06001b;
+        public static final int para_logradouro=0x7f06001e;
+        public static final int pesquisar_desc=0x7f060020;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
@@ -358,6 +379,7 @@ containing a value of this type.
 <tr><td><code>normal</code></td><td>1</td><td></td></tr>
 <tr><td><code>satellite</code></td><td>2</td><td></td></tr>
 <tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
 </table>
           @attr name android:mapType
         */
