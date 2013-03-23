@@ -44,7 +44,7 @@ public class WSCepActivity extends MapActivity implements OnClickListener, OnKey
 	 */
 	
 	private ViewFlipper flipper;
-	
+	private int a;
 	private EditText etCEPDe;
 	private EditText etCEPPara;
 	private ImageButton imgBtnPesquisar;
